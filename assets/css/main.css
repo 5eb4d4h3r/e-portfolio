@@ -2659,58 +2659,58 @@ input, select, textarea {
 
 /* Contact */
 
-	ul.contact {
-		list-style: none;
-		padding: 0;
-		display: flex;
-    	flex-wrap: wrap;
-    	gap: 2em; /* Space between items */
-    	justify-content: center; /* Center the items, or use flex-start/flex-end */
-	}
+		ul.contact {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2em; /* Space between items */
+			justify-content: center; /* Center the items, or use flex-start/flex-end */
+		}
 
 		ul.contact li {
 			text-decoration: none;
-				margin: 0; /* Remove vertical margin */
-				padding: 3.25em 0 0 0; /* Move padding to top for icon space */
-				position: relative;
-				text-align: center; /* Center text below icon */
-				flex: 0 0 auto; /* Don't grow/shrink, auto width */
-				min-width: 120px; /* Minimum width for each item */
+			margin: 0; /* Remove vertical margin */
+			padding: 3.25em 0 0 0; /* Move padding to top for icon space */
+			position: relative;
+			text-align: center; /* Center text below icon */
+			flex: 0 0 auto; /* Don't grow/shrink, auto width */
+			min-width: 120px; /* Minimum width for each item */
 		}
 
-			ul.contact li:before {
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				display: inline-block;
-				font-style: normal;
-				font-variant: normal;
-				text-rendering: auto;
-				line-height: 1;
-				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 400;
-			}
+		ul.contact li:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			line-height: 1;
+			text-transform: none !important;
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 400;
+			
+			/* Icon styling and positioning */
+			border-radius: 100%;
+			border: solid 2px rgba(255, 255, 255, 0.125);
+			font-size: 0.8em;
+			height: 2.5em;
+			width: 2.5em;
+			line-height: 2.35em;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			
+			/* 🎯 CENTER THE ICON - This is the key fix! */
+			left: 50%;
+			transform: translateX(-50%);
+		}
 
-			ul.contact li:before {
-				border-radius: 100%;
-				border: solid 2px rgba(255, 255, 255, 0.125);
-				display: inline-block;
-				font-size: 0.8em;
-				height: 2.5em;
-				left: 0;
-				line-height: 2.35em;
-				position: absolute;
-				text-align: center;
-				top: 0;
-				width: 2.5em;
-			}
-
-			ul.contact li:first-child {
-				margin-top: 0;
-			}
+		ul.contact li:first-child {
+			margin-top: 0;
+		}
 
 		@media screen and (max-width: 736px) {
-
 			ul.contact {
 				flex-direction: column;
 				align-items: center;
@@ -2727,6 +2727,7 @@ input, select, textarea {
 				transform: none;
 			}
 		}
+
 
 /* Pagination */
 
