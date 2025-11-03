@@ -2662,26 +2662,26 @@ input, select, textarea {
 		ul.contact {
 			list-style: none;
 			padding: 0;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 2em; /* Space between items */
-			justify-content: center; /* Center the items, or use flex-start/flex-end */
+			display: grid;
+			grid-template-columns: repeat(4, 1fr); /* Force exactly 4 columns */
+			gap: 2em;
+			justify-content: center;
+			max-width: 800px; /* Control total width */
+			margin: 0 auto; /* Center the grid */
 		}
 
 		ul.contact li {
 			text-decoration: none;
-			margin: 0; /* Remove vertical margin */
-			padding: 3.25em 0 0 0; /* Move padding to top for icon space */
+			margin: 0;
+			padding: 3.25em 0 0 0;
 			position: relative;
-			text-align: center; /* Center text below icon */
-			
-			/* 🔑 KEY CHANGE: Control items per row */
-			flex: 0 0 calc(25% - 1.5em); /* 25% width minus gap adjustment for 4 items */
-			max-width: calc(25% - 1.5em);
-			min-width: 120px; /* Minimum width for each item */
+			text-align: center;
+			/* Remove flex properties - not needed with grid */
 		}
 
+		/* Keep all your :before styles the same */
 		ul.contact li:before {
+			/* All your existing icon styles */
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
 			display: inline-block;
@@ -2692,8 +2692,6 @@ input, select, textarea {
 			text-transform: none !important;
 			font-family: 'Font Awesome 5 Free';
 			font-weight: 400;
-			
-			/* Icon styling and positioning */
 			border-radius: 100%;
 			border: solid 2px rgba(255, 255, 255, 0.125);
 			font-size: 0.8em;
@@ -2703,8 +2701,6 @@ input, select, textarea {
 			position: absolute;
 			text-align: center;
 			top: 0;
-			
-			/* Center the icon */
 			left: 50%;
 			transform: translateX(-50%);
 		}
@@ -2713,32 +2709,30 @@ input, select, textarea {
 			margin-top: 0;
 		}
 
+		/* Responsive breakpoints */
 		@media screen and (max-width: 1024px) {
-			/* 3 items per row on medium screens */
-			ul.contact li {
-				flex: 0 0 calc(33.333% - 1.33em);
-				max-width: calc(33.333% - 1.33em);
+			ul.contact {
+				grid-template-columns: repeat(3, 1fr); /* 3 items on medium screens */
+				max-width: 600px;
 			}
 		}
 
 		@media screen and (max-width: 768px) {
-			/* 2 items per row on smaller screens */
-			ul.contact li {
-				flex: 0 0 calc(50% - 1em);
-				max-width: calc(50% - 1em);
+			ul.contact {
+				grid-template-columns: repeat(2, 1fr); /* 2 items on smaller screens */
+				max-width: 400px;
 			}
 		}
 
 		@media screen and (max-width: 736px) {
-			/* Revert to vertical layout on mobile */
 			ul.contact {
+				display: flex;
 				flex-direction: column;
 				align-items: center;
+				max-width: none;
 			}
 			
 			ul.contact li {
-				flex: none;
-				max-width: none;
 				margin: 1.5em 0 0 0;
 				padding: 0 0 0 3.25em;
 				text-align: left;
