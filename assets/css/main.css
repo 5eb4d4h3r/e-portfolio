@@ -2674,7 +2674,10 @@ input, select, textarea {
 			padding: 3.25em 0 0 0; /* Move padding to top for icon space */
 			position: relative;
 			text-align: center; /* Center text below icon */
-			flex: 0 0 auto; /* Don't grow/shrink, auto width */
+			
+			/* 🔑 KEY CHANGE: Control items per row */
+			flex: 0 0 calc(25% - 1.5em); /* 25% width minus gap adjustment for 4 items */
+			max-width: calc(25% - 1.5em);
 			min-width: 120px; /* Minimum width for each item */
 		}
 
@@ -2701,7 +2704,7 @@ input, select, textarea {
 			text-align: center;
 			top: 0;
 			
-			/* 🎯 CENTER THE ICON - This is the key fix! */
+			/* Center the icon */
 			left: 50%;
 			transform: translateX(-50%);
 		}
@@ -2710,13 +2713,32 @@ input, select, textarea {
 			margin-top: 0;
 		}
 
+		@media screen and (max-width: 1024px) {
+			/* 3 items per row on medium screens */
+			ul.contact li {
+				flex: 0 0 calc(33.333% - 1.33em);
+				max-width: calc(33.333% - 1.33em);
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			/* 2 items per row on smaller screens */
+			ul.contact li {
+				flex: 0 0 calc(50% - 1em);
+				max-width: calc(50% - 1em);
+			}
+		}
+
 		@media screen and (max-width: 736px) {
+			/* Revert to vertical layout on mobile */
 			ul.contact {
 				flex-direction: column;
 				align-items: center;
 			}
 			
 			ul.contact li {
+				flex: none;
+				max-width: none;
 				margin: 1.5em 0 0 0;
 				padding: 0 0 0 3.25em;
 				text-align: left;
