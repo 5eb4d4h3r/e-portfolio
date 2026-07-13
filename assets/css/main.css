@@ -2406,6 +2406,10 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
+		.link-icon {
+			margin-right: 0.4em;
+		}
+
 /* Image */
 
 	.image {
@@ -3063,6 +3067,45 @@ input, select, textarea {
 					width: 100%;
 					margin: 0 0 2em 0 !important;
 				}
+
+		}
+
+	/* Features: thirds (3-column card grid) */
+
+		.features.thirds article {
+			width: calc(33.333% - 2em);
+		}
+
+			.features.thirds article:nth-child(2n) {
+				margin-right: 3em;
+			}
+
+			.features.thirds article:nth-child(3n) {
+				margin-right: 0;
+			}
+
+		@media screen and (max-width: 980px) {
+
+			.features.thirds article {
+				width: calc(50% - 1em);
+			}
+
+				.features.thirds article:nth-child(2n) {
+					margin-right: 0;
+				}
+
+				.features.thirds article:nth-child(3n) {
+					margin-right: 2em;
+				}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.features.thirds article {
+				width: 100%;
+				margin: 0 0 2em 0 !important;
+			}
 
 		}
 
