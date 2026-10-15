@@ -280,7 +280,7 @@ input, select, textarea {
 	}
 
 	h4 {
-		font-size: 0.7em;
+		font-size: 0.85em;
 	}
 
 	h5 {
@@ -299,6 +299,10 @@ input, select, textarea {
 
 		h3 {
 			font-size: 0.8em;
+		}
+
+		h4 {
+			font-size: 0.75em;
 		}
 
 	}
@@ -2410,6 +2414,69 @@ input, select, textarea {
 			margin-right: 0.4em;
 		}
 
+		.caption {
+			color: rgba(255, 255, 255, 0.65);
+			font-size: 0.7em;
+			margin: -1.5em 0 2.5em 0;
+		}
+
+	/* Collapsible sections (native details/summary) */
+
+		details > summary {
+			cursor: pointer;
+			list-style: none;
+			position: relative;
+		}
+
+			details > summary::-webkit-details-marker {
+				display: none;
+			}
+
+			details > summary::after {
+				content: "+";
+				font-size: 1.4em;
+				line-height: 1;
+				opacity: 0.7;
+				position: absolute;
+				right: 0.25em;
+				top: 0;
+			}
+
+			details[open] > summary::after {
+				content: "\2212";
+			}
+
+			details > summary:hover::after,
+			details > summary:focus-visible::after {
+				opacity: 1;
+			}
+
+			details > summary:focus-visible {
+				outline: solid 2px rgba(255, 255, 255, 0.5);
+				outline-offset: 4px;
+			}
+
+		details.task {
+			margin: 0 0 1em 0;
+		}
+
+			details.task > summary h3 {
+				margin-bottom: 0.5em;
+				padding-right: 2em;
+			}
+
+			details.task[open] > summary h3 {
+				margin-bottom: 1.5em;
+			}
+
+			details.task h4 {
+				margin-top: 2em;
+			}
+
+			details.task h4:first-of-type {
+				margin-top: 0;
+			}
+
 /* Image */
 
 	.image {
@@ -2849,6 +2916,28 @@ input, select, textarea {
 				border-top: 0;
 			}
 
+		/* Compact: wide tables with long file or test names that should fit the page */
+
+		table.compact {
+			min-width: 42em;
+			table-layout: fixed;
+		}
+
+			table.compact th,
+			table.compact td {
+				font-size: 0.72em;
+				overflow-wrap: anywhere;
+				padding-left: 0.5em;
+				padding-right: 0.5em;
+			}
+
+			table.compact th:nth-child(1) { width: 5%; }
+			table.compact th:nth-child(2) { width: 31%; }
+			table.compact th:nth-child(3) { width: 10%; }
+			table.compact th:nth-child(4) { width: 22%; }
+			table.compact th:nth-child(5) { width: 18%; }
+			table.compact th:nth-child(6) { width: 14%; }
+
 /* Button */
 
 	input[type="submit"],
@@ -3069,6 +3158,17 @@ input, select, textarea {
 				}
 
 		}
+
+	/* Features: cards (module cards; the "Learn more" link is pinned to the bottom of each card) */
+
+		.features.cards article {
+			display: flex;
+			flex-direction: column;
+		}
+
+			.features.cards article .special {
+				margin-top: auto;
+			}
 
 	/* Features: thirds (3-column card grid) */
 
