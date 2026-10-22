@@ -3196,6 +3196,79 @@ input, select, textarea {
 				margin-top: auto;
 			}
 
+			/* Reserve two title lines so the divider and description start at the same height in every card */
+
+			.features.cards article h3.major {
+				box-sizing: content-box;
+				min-height: 3.3em;
+			}
+
+			@media screen and (max-width: 480px) {
+
+				.features.cards article h3.major {
+					min-height: 0;
+				}
+
+			}
+
+			/* Where supported, cards in a row share their rows (image, title, text, link) so the title divider
+			   lines up whatever the number of title lines; the min-height above is the fallback */
+
+			@media screen and (min-width: 481px) {
+
+				@supports (grid-template-rows: subgrid) {
+
+					.features.cards {
+						column-gap: 3em;
+						display: grid;
+						grid-template-columns: repeat(2, minmax(0, 1fr));
+					}
+
+					.features.cards article {
+						display: grid;
+						grid-row: span 4;
+						grid-template-rows: subgrid;
+						margin-right: 0;
+						width: auto;
+					}
+
+					.features.cards article h3.major {
+						min-height: 0;
+					}
+
+					.features.cards article .special {
+						align-self: end;
+						justify-self: start;
+					}
+
+				}
+
+			}
+
+			@media screen and (min-width: 481px) and (max-width: 980px) {
+
+				@supports (grid-template-rows: subgrid) {
+
+					.features.cards {
+						column-gap: 2em;
+					}
+
+				}
+
+			}
+
+			@media screen and (min-width: 481px) and (max-width: 736px) {
+
+				@supports (grid-template-rows: subgrid) {
+
+					.features.cards {
+						column-gap: 1.75em;
+					}
+
+				}
+
+			}
+
 	/* Features: thirds (3-column card grid) */
 
 		.features.thirds article {
